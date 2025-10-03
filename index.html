@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Cursos - Fredier</title>
+    <script src="https://cdn.jsdelivr.net/npm/tau-prolog/modules/core.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tau-prolog/modules/lists.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-graduation-cap"></i> Sistema de Gestión de Cursos</h1>
+            <h2>Alumno: Fredier</h2>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-tasks"></i>
+                <h3>Seleccionar Materias para Tomar</h3>
+            </div>
+            <p>Selecciona las materias que deseas tomar este semestre:</p>
+            <div id="materiasContainer" class="materias-container">
+                <!-- Las materias se generarán dinámicamente con JavaScript -->
+            </div>
+            
+            <div class="actions">
+                <button class="btn" onclick="actualizarMateriasSeleccionadas()">
+                    <i class="fas fa-sync-alt"></i> Actualizar Materias a Cursar
+                </button>
+            </div>
+            
+            <div class="materias-tomando">
+                <h4><i class="fas fa-list-check"></i> Materias que voy a cursar:</h4>
+                <div id="materiasCursando" class="result">
+                    <ul class="course-list" id="listaMateriasCursando">
+                        <li class="empty-state">
+                            <i class="fas fa-inbox"></i>
+                            <div>No has seleccionado materias para cursar</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-book-open"></i>
+                <h3>Cursos Disponibles para Tomar</h3>
+            </div>
+            <p>Consulta los cursos que puedes tomar según los requisitos aprobados:</p>
+            <div class="actions">
+                <button class="btn" onclick="consultarCursosDisponibles()">
+                    <i class="fas fa-search"></i> Consultar Cursos Disponibles
+                </button>
+            </div>
+            <div id="cursosDisponibles" class="result">
+                <div class="empty-state">
+                    <i class="fas fa-search"></i>
+                    <div>Haz clic en el botón para consultar los cursos disponibles</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-clock"></i>
+                <h3>Cursos Pendientes por Aprobar</h3>
+            </div>
+            <p>Consulta los cursos que aún no has aprobado:</p>
+            <div class="actions">
+                <button class="btn" onclick="consultarCursosPendientes()">
+                    <i class="fas fa-list"></i> Consultar Cursos Pendientes
+                </button>
+            </div>
+            <div id="cursosPendientes" class="result">
+                <div class="empty-state">
+                    <i class="fas fa-clock"></i>
+                    <div>Haz clic en el botón para consultar los cursos pendientes</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-check-circle"></i>
+                <h3>Verificar Curso Específico</h3>
+            </div>
+            <p>Verifica si puedes tomar un curso específico:</p>
+            <div class="select-container">
+                <select id="cursoSelect">
+                    <option value="programacion1">Programación 1</option>
+                    <option value="programacion2">Programación 2</option>
+                    <option value="basedatos1">Base de Datos 1</option>
+                    <option value="basedatos2">Base de Datos 2</option>
+                    <option value="ensamblador1">Ensamblador 1</option>
+                    <option value="ensamblador2">Ensamblador 2</option>
+                </select>
+            </div>
+            <div class="actions">
+                <button class="btn" onclick="verificarCurso()">
+                    <i class="fas fa-question-circle"></i> ¿Puede Tomar este Curso?
+                </button>
+            </div>
+            <div id="verificacionCurso" class="result">
+                <div class="empty-state">
+                    <i class="fas fa-question-circle"></i>
+                    <div>Selecciona un curso y haz clic en verificar</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-star"></i>
+                <h3>Estado Actual</h3>
+            </div>
+            <p>Consulta los cursos que ya has aprobado:</p>
+            <div class="actions">
+                <button class="btn" onclick="mostrarCursosAprobados()">
+                    <i class="fas fa-graduation-cap"></i> Mostrar Cursos Aprobados
+                </button>
+            </div>
+            <div id="cursosAprobados" class="result">
+                <div class="empty-state">
+                    <i class="fas fa-graduation-cap"></i>
+                    <div>Haz clic en el botón para ver tus cursos aprobados</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/prolog-rules.js"></script>
+    <script src="js/ui-handlers.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
