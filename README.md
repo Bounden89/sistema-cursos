@@ -16,6 +16,6 @@ Sistema web para gestionar cursos universitarios con verificación automática d
 ## 📦 Instalación
 
 ```bash
-git clone https://github.com/TU_USUARIO/sistema-gestion-cursos.git
+git clone https://github.com/Bounden89/sistema-cursos.git
 cd sistema-gestion-cursos
 # Abrir index.html en el navegador
